@@ -25,11 +25,11 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 0.0,
         backgroundColor: AppColor.primaryColor,
         centerTitle: true,
-        title: Text("MineSweeper"),
+        title: const Text("MineSweeper"),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ],
       ),
@@ -42,9 +42,9 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.0, vertical: 16.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 22.0, vertical: 16.0),
                   decoration: BoxDecoration(
                     color: AppColor.lightPrimaryColor,
                     borderRadius: BorderRadius.circular(8.0),
@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
                         color: AppColor.accentColor,
                         size: 34.0,
                       ),
-                      Text(
+                      const Text(
                         "12:32",
                         style: TextStyle(
                           color: Colors.white,
@@ -71,9 +71,9 @@ class _MainScreenState extends State<MainScreen> {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.0, vertical: 16.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 22.0, vertical: 16.0),
                   decoration: BoxDecoration(
                     color: AppColor.lightPrimaryColor,
                     borderRadius: BorderRadius.circular(8.0),
@@ -86,7 +86,7 @@ class _MainScreenState extends State<MainScreen> {
                         color: AppColor.accentColor,
                         size: 34.0,
                       ),
-                      Text(
+                      const Text(
                         "12:32",
                         style: TextStyle(
                           color: Colors.white,
@@ -103,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             width: double.infinity,
             height: 500.0,
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: MineSweeperGame.row,
@@ -121,7 +121,7 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: Container(
-                      decoration: BoxDecoration(color: Colors.white),
+                      decoration: const BoxDecoration(color: Colors.white),
                       child: Center(
                         child: Text(game.gameMap[index].reveal
                             ? "${game.gameMap[index].content}"
@@ -133,12 +133,12 @@ class _MainScreenState extends State<MainScreen> {
           ),
           RawMaterialButton(
             onPressed: () {
-              setState(() {
-                game.generateMap();
-              });
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const MainScreen()),
+                  (Route<dynamic> route) => false);
             },
             fillColor: Colors.blue,
-            child: Text("repeat"),
+            child: const Text("repeat"),
           ),
         ],
       ),

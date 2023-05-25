@@ -13,6 +13,7 @@ class MineSweeperGame {
 
   // function to generate a map
   void generateMap() {
+    gameMap = [];
     placeMines(10);
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < col; j++) {
@@ -37,7 +38,6 @@ class MineSweeperGame {
       for (int j = 0; j < col; j++) {
         map[i][j].reveal = map[i][j].content == "X";
       } // revealing all the mines
-
     }
   }
 
